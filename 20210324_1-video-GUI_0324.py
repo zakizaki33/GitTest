@@ -15,6 +15,7 @@ from multiprocessing import Process
 #  global flag
 #  flag=0
 #  追記　 ここまで
+#  testtestest
 
 
 class Application(tk.Frame):
