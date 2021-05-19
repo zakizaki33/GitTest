@@ -4,12 +4,12 @@ import cv2
 import PIL.Image
 import PIL.ImageTk
 from tkinter import font
-import time
+# import time
 import shutil
 import os
 import datetime
 import threading
-import sys
+# import sys
 from multiprocessing import Process
 #  追記　 ここから
 #  global flag
@@ -32,9 +32,12 @@ class Application(tk.Frame):
         # ---------------------------------------------------------
         # Font
         # ---------------------------------------------------------
-        self.font_frame = font.Font(family="Meiryo UI", size=15, weight="normal")
-        self.font_btn_big = font.Font(family="Meiryo UI", size=20, weight="bold")
-        self.font_btn_small = font.Font(family="Meiryo UI", size=15, weight="bold")
+        self.font_frame = font.Font(
+            family="Meiryo UI", size=15, weight="normal")
+        self.font_btn_big = font.Font(
+            family="Meiryo UI", size=20, weight="bold")
+        self.font_btn_small = font.Font(
+            family="Meiryo UI", size=15, weight="bold")
 
         self.font_lbl_bigger = font.Font(family="Meiryo UI", size=45, weight="bold")
         self.font_lbl_big = font.Font(family="Meiryo UI", size=30, weight="bold")
@@ -89,6 +92,15 @@ class Application(tk.Frame):
         # ボタンが押された時に、press_snapshot_button を発動する
         self.btn_snapshot.configure(width=20, height=1, command=self.press_snapshot_button)
         self.btn_snapshot.grid(column=0, row=0, padx=20, pady=10)
+
+        # 追記ZAKI　2021-05-17　ここから　
+        # label
+        text1 = "録画停止中"
+        text2 = "録画実行中"
+        words1 = tk.Label(text=text1, font=("", 12))
+        words1.pack()
+        # words1.place(x=500, y=500)
+        # 追記　ここまで　
 
         # Close
         self.btn_close = tk.Button(self.frame_btn, text='Close', font=self.font_btn_big)
