@@ -4,12 +4,12 @@ import cv2
 import PIL.Image
 import PIL.ImageTk
 from tkinter import font
-import time
+# import time
 import shutil
 import os
 import datetime
 import threading
-import sys
+# import sys
 from multiprocessing import Process
 #  追記　 ここから
 #  global flag
@@ -17,11 +17,15 @@ from multiprocessing import Process
 #  追記　 ここまで
 #  testtestest
 
+text1 = "録画停止中"
+text2 = "録画実行中"
 
 class Application(tk.Frame):
 
     flag = 0
     t1 = threading
+
+
 
     def __init__(self, master, video_source=0):
         super().__init__(master)
@@ -32,9 +36,12 @@ class Application(tk.Frame):
         # ---------------------------------------------------------
         # Font
         # ---------------------------------------------------------
-        self.font_frame = font.Font(family="Meiryo UI", size=15, weight="normal")
-        self.font_btn_big = font.Font(family="Meiryo UI", size=20, weight="bold")
-        self.font_btn_small = font.Font(family="Meiryo UI", size=15, weight="bold")
+        self.font_frame = font.Font(
+            family="Meiryo UI", size=15, weight="normal")
+        self.font_btn_big = font.Font(
+            family="Meiryo UI", size=20, weight="bold")
+        self.font_btn_small = font.Font(
+            family="Meiryo UI", size=15, weight="bold")
 
         self.font_lbl_bigger = font.Font(family="Meiryo UI", size=45, weight="bold")
         self.font_lbl_big = font.Font(family="Meiryo UI", size=30, weight="bold")
@@ -90,6 +97,15 @@ class Application(tk.Frame):
         self.btn_snapshot.configure(width=20, height=1, command=self.press_snapshot_button)
         self.btn_snapshot.grid(column=0, row=0, padx=20, pady=10)
 
+        # 追記ZAKI　2021-05-17　ここから　
+        # label
+
+        self.words1 = tk.Label(text=text1, font=("", 12))
+        # self.words1 = tk.Label(text="録画停止中", font=("", 12))
+        self.words1.pack()
+        # words1.place(x=500, y=500)
+        # 追記　ここまで　
+
         # Close
         self.btn_close = tk.Button(self.frame_btn, text='Close', font=self.font_btn_big)
         self.btn_close.configure(width=15, height=1, command=self.press_close_button)
@@ -113,7 +129,11 @@ class Application(tk.Frame):
         # https://qiita.com/ttiger55/items/5e1d5a3405d2b3ef8f40
 
         # threading.Thread(target=self.video_recode).start()
-        Process(target=self.video_recode).start()
+        
+        # ↓録画をうまく開始できないので一旦消す。　★★★
+        # Process(target=self.video_recode).start()
+        
+        
         # Process(target=test111).start()
         # ppp= Process(target=test111)
         # ppp.start()
@@ -124,10 +144,12 @@ class Application(tk.Frame):
         if (self.flag == 0):
             # self.t1.start()
             self.btn_snapshot.configure(text="STOP だよ")
+            self.words1.configure(text="録画実行中")
             self.flag = 1
         else:
             # sys.exit()
             self.btn_snapshot.configure(text="録画START だよ")
+            self.words1.configure(text="録画停止中")
             self.flag = 0
 
     def press_close_button(self):
