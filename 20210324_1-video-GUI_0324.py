@@ -19,8 +19,8 @@ from multiprocessing import Process
 
 text1 = "録画停止中"
 text2 = "録画実行中"
-text3 = "hogehoge"
 
+# コメント
 
 class Application(tk.Frame):
 
