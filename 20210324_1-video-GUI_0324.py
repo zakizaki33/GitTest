@@ -9,8 +9,8 @@ import time
 import shutil
 import os
 import threading
-# import sys
-from multiprocessing import Process
+import sys
+# from multiprocessing import Process
 import logging
 logging.basicConfig(filename="test.log", level=logging.DEBUG)
 #  追記　 ここから
@@ -24,12 +24,11 @@ text2 = "録画実行中"
 
 # コメント
 
+
 class Application(tk.Frame):
 
     flag = 0
     t1 = threading
-
-
 
     def __init__(self, master, video_source=0):
         super().__init__(master)
@@ -165,11 +164,10 @@ class Application(tk.Frame):
         # https://qiita.com/ttiger55/items/5e1d5a3405d2b3ef8f40
 
         # threading.Thread(target=self.video_recode).start()
-        
+
         # ↓録画をうまく開始できないので一旦消す。　★★★
         # Process(target=self.video_recode).start()
-        
-        
+
         # Process(target=test111).start()
         # ppp= Process(target=test111)
         # ppp.start()
