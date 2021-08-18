@@ -4,12 +4,8 @@ import cv2
 import PIL.Image
 import PIL.ImageTk
 from tkinter import font
-<<<<<<< HEAD
 import datetime
 import time
-=======
-# import time
->>>>>>> 5eccb2b57c10c883434c20cb0545649703625ee7
 import shutil
 import os
 import threading
@@ -51,7 +47,6 @@ class Application(tk.Frame):
         self.font_btn_small = font.Font(
             family="Meiryo UI", size=15, weight="bold")
 
-<<<<<<< HEAD
         self.font_lbl_bigger = font.Font(
             family="Meiryo UI", size=45, weight="bold")
         self.font_lbl_big = font.Font(
@@ -60,12 +55,6 @@ class Application(tk.Frame):
             family="Meiryo UI", size=15, weight="bold")
         self.font_lbl_small = font.Font(
             family="Meiryo UI", size=12, weight="normal")
-=======
-        self.font_lbl_bigger = font.Font(family="Meiryo UI", size=45, weight="bold")
-        self.font_lbl_big = font.Font(family="Meiryo UI", size=30, weight="bold")
-        self.font_lbl_middle = font.Font(family="Meiryo UI", size=15, weight="bold")
-        self.font_lbl_small = font.Font(family="Meiryo UI", size=12, weight="normal")
->>>>>>> 5eccb2b57c10c883434c20cb0545649703625ee7
 
         # ---------------------------------------------------------
         # Open the video source
