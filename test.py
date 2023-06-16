@@ -2,7 +2,7 @@ import time
 time.sleep(1)
 print("foo")
 print("bar")
-print("ふがふが")
+print("ふがふが\n")
 time.sleep(1)
 
 
